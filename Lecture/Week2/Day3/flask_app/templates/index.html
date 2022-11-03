@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>All Robots</title>
+</head>
+<body>
+    <h1> this our Robots in Omega Cohort</h1>
+    <table class="table">
+        <thead>
+            <tr class="table-dark" >
+              <th scope="col">#id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Type</th>
+              <th scope="col">Power</th>
+              <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {%for onerobot in robots%}
+        <tr>
+            <th class="table-info" scope="row">{{onerobot.id_robot}}</th>
+            <td class="table-success">{{onerobot.name}}</td>
+            <td class="table-info">{{onerobot.type}}</td>
+            <td class="table-success">{{onerobot.power}}</td>
+            <td class="table-warning">|
+                <a href="/oneRobot/{{onerobot.id_robot}}">View</a>
+                <a href="/fixRobot/{{onerobot.id_robot}}">Edit</a> |
+                <a href="/ByBydestroy/{{onerobot.id_robot}}">Delete</a>
+            </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-info"href="/newRobot" value="Add Robot">
+</html>
